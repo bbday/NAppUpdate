@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Security.Permissions;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace FeedBuilder
 {
-	/// <summary>
-	///   File system enumerator.  This class provides an easy to use, efficient mechanism for searching a list of
-	///   directories for files matching a list of file specifications.  The search is done incrementally as matches
-	///   are consumed, so the overhead before processing the first match is always kept to a minimum.
-	/// </summary>
-	public sealed class FileSystemEnumerator
+    /// <summary>
+    ///   File system enumerator.  This class provides an easy to use, efficient mechanism for searching a list of
+    ///   directories for files matching a list of file specifications.  The search is done incrementally as matches
+    ///   are consumed, so the overhead before processing the first match is always kept to a minimum.
+    /// </summary>
+    public sealed class FileSystemEnumerator
 	{
 		/// <summary>
 		///   Array of paths to be searched.
@@ -73,18 +69,10 @@ namespace FeedBuilder
 			}
 		}
 
-		void CheckSecurity(string folderPath)
-		{
-			new FileIOPermission(FileIOPermissionAccess.PathDiscovery, Path.Combine(folderPath, ".")).Demand();
-		}
-
 		private IEnumerable<string> ProcessSubdirectories(string folderPath)
 		{
-			// check security - ensure that caller has rights to read this directory
-			CheckSecurity(folderPath);
 			foreach (var d in Directory.GetDirectories(folderPath))
 			{
-				new FileIOPermission(FileIOPermissionAccess.PathDiscovery, Path.Combine(d, ".")).Demand();
 				yield return d;
 				foreach (var sd in ProcessSubdirectories(d))
 					yield return sd;
@@ -106,15 +94,11 @@ namespace FeedBuilder
 			{
 				string path = rootPath.Trim();
 
-				// check security - ensure that caller has rights to read this directory
-				CheckSecurity(path);
-
 				foreach (var fi in ProcessFiles(path))
 					yield return fi;
 
 				if (m_includeSubDirs)
 				{
-
 					foreach (var d in ProcessSubdirectories(path))
 					{
 						foreach (var fi in ProcessFiles(d))
@@ -125,4 +109,3 @@ namespace FeedBuilder
 		}
 	}
 }
-

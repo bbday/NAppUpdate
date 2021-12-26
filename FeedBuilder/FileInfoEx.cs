@@ -1,10 +1,8 @@
-using System.Diagnostics;
-using System.IO;
-using NAppUpdate.Framework.Utils;
+﻿using System.Diagnostics;
 
 namespace FeedBuilder
 {
-	public class FileInfoEx
+    public class FileInfoEx
 	{
 		private readonly FileInfo myFileInfo;
 		private readonly string myFileVersion;
@@ -33,7 +31,7 @@ namespace FeedBuilder
 			var verInfo = FileVersionInfo.GetVersionInfo(fileName);
 			if (myFileVersion == null)
 				myFileVersion = new System.Version(verInfo.FileMajorPart, verInfo.FileMinorPart, verInfo.FileBuildPart, verInfo.FilePrivatePart).ToString();
-			myHash = NAppUpdate.Framework.Utils.FileChecksum.GetSHA256Checksum(fileName);
+			myHash = NAppUpdateR.Utils.FileChecksum.GetSHA256Checksum(fileName);
 
 			RelativeName = fileName.Substring(rootDirLength);
 		}

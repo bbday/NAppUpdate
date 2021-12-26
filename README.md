@@ -1,8 +1,9 @@
 # NAppUpdate
 
-[![NuGet version](https://badge.fury.io/nu/NAppUpdate.Framework.svg)](http://badge.fury.io/nu/NAppUpdate.Framework)
+An application auto-update for .NET 6 window:
 
-An application auto-update framework for .NET
+Feel free to improve it
+
 
 ## Contributions
 
@@ -21,22 +22,6 @@ How to contribute:
 3. Avoid commiting lines that are irrelevant for the change (e.g. random white space changes)
 
 An [.editorconfig](http://editorconfig.org/) file is available in the project, which makes it easy to follow the coding standard by installing the [EditorConfig](https://visualstudiogallery.msdn.microsoft.com/c8bccfe2-650c-4b42-bc5c-845e21f96328) and [Format document on Save](https://visualstudiogallery.msdn.microsoft.com/3ea1c920-69c4-441f-9979-ccc2752dac56) extensions in Visual Studio.
-
-## How to pack NuGet
-
-NAppUpdate is published in a NuGet package containing libraries for two target frameworks, .NET 3.5 and 4.0.
-
-Build the following projects under configurations *Release 3.5* and *Release 4.0*:
-1. NAppUpdate.Updater
-2. NAppUpdate.Framework
-
-**NOTE:** *It's important to rebuild the Updater for each configuration before building the Framework, so that the correct .NET framework version is referenced by the embedded executable.*
-
-Run the following command in the NAppUpdate.Framework directory:
-
-    nuget pack .\NAppUpdate.Framework.csproj -Prop Configuration="Release 3.5"
-
-**NOTE:** *It doesn't matter if you specify "Release 3.5" or "Release 4.0" when creating the package. A warning will be generated saying that the package already contains the file, this is expected.*
 
 ## Other notes
 

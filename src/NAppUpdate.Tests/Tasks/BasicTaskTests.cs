@@ -1,16 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NAppUpdate.Framework.Tasks;
+﻿using NAppUpdateR.Tasks;
+using NUnit.Framework;
 
 namespace NAppUpdate.Tests.Tasks
 {
-	[TestClass]
-	public class BasicTaskTests
-	{
-		[TestMethod]
-		public void TestTaskDefaultCharacteristics()
-		{
-			var task = new FileUpdateTask(); // just a random task object
-			Assert.IsTrue(task.ExecutionStatus == TaskExecutionStatus.Pending);
-		}
-	}
+    public class BasicTaskTests
+    {
+        [Test]
+        public void TestTaskDefaultCharacteristics()
+        {
+            var task = new FileUpdateTask(); // just a random task object
+            Assert.IsTrue(task.ExecutionStatus == TaskExecutionStatus.Pending);
+        }
+    }
 }

@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
+﻿using System.Text.RegularExpressions;
 
 namespace FeedBuilder
 {
@@ -18,7 +14,8 @@ namespace FeedBuilder
 		{
 			foreach (string thisArg in args)
 			{
-				if (thisArg.ToLower() == Application.ExecutablePath.ToLower() || thisArg.ToLower().Contains(".vshost.exe")) continue;
+				if (thisArg.ToLower() == Application.ExecutablePath.ToLower() || thisArg.ToLower().Contains(".vshost.exe") ||
+					thisArg.ToLower() == Application.ExecutablePath.ToLower().Replace(".exe", ".dll")) continue;
 
 				string arg = CleanArg(thisArg);
 				if (arg == "build")

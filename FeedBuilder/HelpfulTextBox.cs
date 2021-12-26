@@ -1,11 +1,9 @@
-using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
 
 namespace FeedBuilder
 {
-	public partial class HelpfulTextBox : TextBox
+    public partial class HelpfulTextBox : TextBox
 	{
 		public HelpfulTextBox()
 		{

@@ -1,12 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NAppUpdate.Framework.Sources;
-
-namespace NAppUpdate.Tests.Integration
+﻿namespace NAppUpdate.Tests.Integration
 {
-	[TestClass]
-	public class SimpleWebSourceTests
-	{
-		[TestMethod]
+    public class SimpleWebSourceTests
+    {
+        /*
+		[Test]
 		public void can_download_ansi_feed()
 		{
 			const string expected = "NHibernate.Profiler-Build-";
@@ -16,5 +13,6 @@ namespace NAppUpdate.Tests.Integration
 
 			Assert.AreEqual(expected, str.Substring(0, expected.Length));
 		}
-	}
+		*/
+    }
 }
